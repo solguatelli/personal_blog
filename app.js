@@ -2,7 +2,6 @@
 
 // Instalacion de paquetes y modulos requeridos
 
-require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -15,8 +14,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // Creacion de base de datos
-//"mongodb+srv://<user>:<password>@cluster0.hfwrw.mongodb.net/postsDB?retryWrites=true&w=majority"
-mongoose.connect("mongodb+srv://" + process.env.MONGO_USER + ":" + process.env.MONGO_PASSWORD + "@cluster0.hfwrw.mongodb.net/postsDB?retryWrites=true&w=majority" ,{useNewUrlParser : true})
+
+mongoose.connect("mongodb+srv://admin-sol:vacarosadita@cluster0.hfwrw.mongodb.net/postsDB?retryWrites=true&w=majority" ,{useNewUrlParser : true})
 
 postsSchema = new mongoose.Schema({
   name: String,
