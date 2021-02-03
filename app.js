@@ -15,7 +15,7 @@ app.use(express.static("public"));
 
 // Creacion de base de datos
 
-mongoose.connect("mongodb://localhost:27017/postsDB")
+mongoose.connect("mongodb+srv://admin-sol:vacarosadita@cluster0.hfwrw.mongodb.net/postsDB?retryWrites=true&w=majority" ,{useNewUrlParser : true})
 
 postsSchema = new mongoose.Schema({
   name: String,
@@ -87,6 +87,6 @@ app.get("/posts/:postId", function (req,res) {
 
 })
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(process.env.PORT || 3000, function () {
+  console.log("Server up and running in port 3000 at http://localhost:3000");
 });
